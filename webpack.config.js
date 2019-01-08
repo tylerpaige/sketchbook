@@ -1,4 +1,5 @@
 const path = require('path');
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -11,6 +12,7 @@ module.exports = {
     rules : [
       {
         test: /\.jsx?/i,
+        exclude: /node_modules/,
         use: [
           {
             loader :'babel-loader',
@@ -24,6 +26,23 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.s?css$/,
+        use : [
+          {
+            loader : 'style-loader',
+            options : {
+              singleton : true
+            }
+          },
+          {
+            loader : 'css-loader',
+            options : {
+              modules : true
+            }
+          }
+        ]
       }
     ]
   },
@@ -32,11 +51,5 @@ module.exports = {
     contentBase : path.join(__dirname, 'src'),
     compress : true,
     historyApiFallback : true
-  },
-  resolve : {
-    alias : {
-      'react' : 'preact-compat',
-      'react-dom' : 'preact-compat'
-    }
   }
 };

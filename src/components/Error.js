@@ -1,10 +1,9 @@
 import { h } from 'preact';
 
-export default function Error() {
+export default function Example() {
   return (
     <div>
-      <b>Error</b>
-      <a href="/">Go home</a>
+      <h1>File not found</h1>
     </div>
-  )
-};
+  );
+}

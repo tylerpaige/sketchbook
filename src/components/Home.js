@@ -1,21 +1,21 @@
 import { h } from 'preact';
 import { route } from 'preact-router';
-
-function go(id) {
-  console.log(id);
-  if (id !== '') {
-    route(`/sketch/${encodeURIComponent(id)}`);
-  }
-}
+import { Link } from 'preact-router/match';
+import routes from './routes';
 
 export function Home () {
+  const listItems = Object.keys(routes).map(routeKey => {
+    const url = `/sketch/${routeKey}`;
+    return (
+      <li><a href={ url }>{ routeKey }</a></li>
+    )
+  });
+
   return (
     <section>
-      <h1>Hello world</h1>
-      <input type="text"
-        placeholder="Enter a sketch ID"
-        onChange={e => go(e.target.value)}
-      />
+      <nav>
+        { listItems }
+      </nav>
     </section>
   )
 };
