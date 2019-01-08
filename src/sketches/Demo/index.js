@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import styles from './styles.css';
+import styles from './styles.scss';
 
 export default function Demo() {
   return (
