@@ -19,9 +19,7 @@ export class Sketch extends Component {
   render(props, state) {
     const SketchComponent = this.state.sketch;
     return (
-      <div>
-        <SketchComponent />
-      </div>
+      <SketchComponent />
     );
   }
 }
